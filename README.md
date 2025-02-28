@@ -60,3 +60,5 @@ Want to suggest improvements or add new integrations? Feel free to open an issue
 ## Support
 
 Need help with the integrations or Gbrlink itself? Reach out to us at [contact@deeplooklabs.com](mailto:contact@deeplooklabs.com).
+
+🚀 **Happy Hunting!**

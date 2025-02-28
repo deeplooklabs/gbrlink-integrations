@@ -1,28 +1,28 @@
-# Tampermonkey - Gbrlink Integration
+# Tampermonkey - Integração com Gbrlink
 
-**[Leia isso em Portugues](README.pt.md) | [Leia esto en Español](README.es.md)**
+**[Read this in English](README.md) | [Lea esto en Español](README.es.md)**
 
-This script enables **Gbrlink** integration directly into your browser via **Tampermonkey**, facilitating the automatic analysis of broken links on visited pages.
+Este script permite a integração do **Gbrlink** diretamente no seu navegador através do **Tampermonkey**, facilitando a análise automática de links quebrados em páginas visitadas.
 
-## 🚀 Installation
+## 🚀 Instalação
 
-### 1️⃣ **Install the Tampermonkey Extension**
-If you haven't installed Tampermonkey yet, download the extension for your browser:
+### 1️⃣ **Instalar a extensão Tampermonkey**
+Se você ainda não tem o Tampermonkey instalado, baixe a extensão para o seu navegador:
 
 - **[Google Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)**
 - **[Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)**
 - **[Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)**
 - **[Opera](https://addons.opera.com/en/extensions/details/tampermonkey-beta/)**
 
-### 2️⃣ **Add the Script to Tampermonkey**
-1. Open Tampermonkey in your browser and click **"Create a new script"**.
-2. Delete the existing content in the editor and paste the code below.
-3. **Replace `"GBRLINK_API_KEY"` with your Gbrlink API key**.
-4. Save the script by clicking **File → Save** or pressing `Ctrl + S`.
+### 2️⃣ **Adicionar o script ao Tampermonkey**
+1. Abra o Tampermonkey no seu navegador e clique em **"Criar um novo script"**.
+2. Apague o conteúdo do editor e cole o código abaixo.
+3. **Substitua `"SUA_GBRLINK_API_KEY"` pela sua chave de API do Gbrlink**.
+4. Salve o script clicando em **Arquivo → Salvar** ou pressionando `Ctrl + S`.
 
 ---
 
-## 📜 Script Code
+## 📜 Código do Script
 
 ```javascript
 // ==UserScript==
@@ -39,7 +39,7 @@ If you haven't installed Tampermonkey yet, download the extension for your brows
     'use strict';
 
     const API_URL = 'https://gbrlink.deeplooklabs.com/receive_urls'; // 🔒 DONT CHANGE!!!
-    const API_KEY = 'GBRLINK_API_KEY'; // 🔴 CHANGE TO YOUR KEY
+    const API_KEY = 'GBRLINK_API_KEY'; // 🔴 CHANGE TO YOU KEY
 
     const urlRegex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi;
 
@@ -101,7 +101,7 @@ If you haven't installed Tampermonkey yet, download the extension for your brows
         setTimeout(() => {
             const urls = collectUrls();
             if (urls.length > 0) {
-                console.log('URLs found:', urls);
+                console.log('URLs finded:', urls);
                 sendUrlsToApi(urls);
             } else {
                 console.log('No URL found on the page.');
@@ -113,21 +113,22 @@ If you haven't installed Tampermonkey yet, download the extension for your brows
 
 ---
 
-### ✅ How to Use
-1. Visit any website after activating the script in Tampermonkey.
-2. The script will automatically check the links on the page using the **Gbrlink** API.
-3. **Suspicious links will be highlighted in red**, indicating potential vulnerabilities.
+### ✅ Como Usar
+1.	Acesse qualquer site após ativar o script no Tampermonkey.
+2.	O script verificará automaticamente os links da página com a API do Gbrlink.
+3.	Links suspeitos serão destacados em vermelho, indicando possíveis vulnerabilidades.
 
 ---
 
-### 🚨 Attention
-- You must replace `"GBRLINK_API_KEY"` with your actual Gbrlink API key. Otherwise, the script will not work.
-- If you do not have a key, subscribe to a plan at [Gbrlink](../README.md#subscribe-to-a-plan-and-get-started).
+### 🚨 Atenção
+- Você deve substituir "GBRLINK_API_KEY" pela sua chave de API real do Gbrlink. Caso contrário, o script não funcionará.
+- Se não possui uma chave, assine um plano no [Gbrlink](../README.md#subscribe-to-a-plan-and-get-started).
 
 ---
 
-### 📩 Support
+### 📩 Suporte
 
-If you need help with installation or have any questions, contact us at [contact@deeplooklabs.com](mailto:contact@deeplooklabs.com).
+Se precisar de ajuda com a instalação ou tiver dúvidas, entre em contato via ;[contact@deeplooklabs.com](mailto:contact@deeplooklabs.com).
 
-🚀 Enjoy and happy hunting!
+
+🚀 Aproveite e boas caçadas!

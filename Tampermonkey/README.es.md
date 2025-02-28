@@ -1,28 +1,28 @@
-# Tampermonkey - Gbrlink Integration
+# Tampermonkey - Integración con Gbrlink
 
-**[Leia isso em Portugues](README.pt.md) | [Leia esto en Español](README.es.md)**
+**[Leia isso em Português](README.pt.md) | [Read this in English](README.md)**
 
-This script enables **Gbrlink** integration directly into your browser via **Tampermonkey**, facilitating the automatic analysis of broken links on visited pages.
+Este script permite la integración de **Gbrlink** directamente en tu navegador a través de **Tampermonkey**, facilitando el análisis automático de enlaces rotos en las páginas visitadas.
 
-## 🚀 Installation
+## 🚀 Instalación
 
-### 1️⃣ **Install the Tampermonkey Extension**
-If you haven't installed Tampermonkey yet, download the extension for your browser:
+### 1️⃣ **Instalar la extensión Tampermonkey**
+Si aún no tienes Tampermonkey instalado, descarga la extensión para tu navegador:
 
 - **[Google Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)**
 - **[Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)**
 - **[Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)**
 - **[Opera](https://addons.opera.com/en/extensions/details/tampermonkey-beta/)**
 
-### 2️⃣ **Add the Script to Tampermonkey**
-1. Open Tampermonkey in your browser and click **"Create a new script"**.
-2. Delete the existing content in the editor and paste the code below.
-3. **Replace `"GBRLINK_API_KEY"` with your Gbrlink API key**.
-4. Save the script by clicking **File → Save** or pressing `Ctrl + S`.
+### 2️⃣ **Agregar el Script a Tampermonkey**
+1. Abre Tampermonkey en tu navegador y haz clic en **"Crear un nuevo script"**.
+2. Elimina el contenido existente en el editor y pega el código a continuación.
+3. **Reemplaza `"GBRLINK_API_KEY"` con tu clave de API de Gbrlink**.
+4. Guarda el script haciendo clic en **Archivo → Guardar** o presionando `Ctrl + S`.
 
 ---
 
-## 📜 Script Code
+## 📜 Código del Script
 
 ```javascript
 // ==UserScript==
@@ -38,8 +38,8 @@ If you haven't installed Tampermonkey yet, download the extension for your brows
 (function() {
     'use strict';
 
-    const API_URL = 'https://gbrlink.deeplooklabs.com/receive_urls'; // 🔒 DONT CHANGE!!!
-    const API_KEY = 'GBRLINK_API_KEY'; // 🔴 CHANGE TO YOUR KEY
+    const API_URL = 'https://gbrlink.deeplooklabs.com/receive_urls'; // 🔒 ¡NO CAMBIAR!
+    const API_KEY = 'GBRLINK_API_KEY'; // 🔴 ¡CAMBIA POR TU CLAVE!
 
     const urlRegex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi;
 
@@ -89,10 +89,10 @@ If you haven't installed Tampermonkey yet, download the extension for your brows
             },
             data: JSON.stringify(urls),
             onload: function(response) {
-                console.log('Success to send urls:', response.status, response.responseText);
+                console.log('Envío de URLs exitoso:', response.status, response.responseText);
             },
             onerror: function(error) {
-                console.error('Error to send urls:', error);
+                console.error('Error al enviar URLs:', error);
             }
         });
     }
@@ -101,10 +101,10 @@ If you haven't installed Tampermonkey yet, download the extension for your brows
         setTimeout(() => {
             const urls = collectUrls();
             if (urls.length > 0) {
-                console.log('URLs found:', urls);
+                console.log('URLs encontradas:', urls);
                 sendUrlsToApi(urls);
             } else {
-                console.log('No URL found on the page.');
+                console.log('No se encontraron URLs en la página.');
             }
         }, 1000); 
     });
@@ -113,21 +113,21 @@ If you haven't installed Tampermonkey yet, download the extension for your brows
 
 ---
 
-### ✅ How to Use
-1. Visit any website after activating the script in Tampermonkey.
-2. The script will automatically check the links on the page using the **Gbrlink** API.
-3. **Suspicious links will be highlighted in red**, indicating potential vulnerabilities.
+### ✅ Cómo Usar
+1. Visita cualquier sitio web después de activar el script en Tampermonkey.
+2. El script verificará automáticamente los enlaces en la página utilizando la API de **Gbrlink**.
+3. **Los enlaces sospechosos serán resaltados en rojo**, indicando posibles vulnerabilidades.
 
 ---
 
-### 🚨 Attention
-- You must replace `"GBRLINK_API_KEY"` with your actual Gbrlink API key. Otherwise, the script will not work.
-- If you do not have a key, subscribe to a plan at [Gbrlink](../README.md#subscribe-to-a-plan-and-get-started).
+### 🚨 Atención
+- Debes reemplazar `"GBRLINK_API_KEY"` con tu clave de API real de Gbrlink. De lo contrario, el script no funcionará.
+- Si no tienes una clave, suscríbete a un plan en [Gbrlink](../README.md#suscribete-y-comienza-ahora).
 
 ---
 
-### 📩 Support
+### 📩 Soporte
 
-If you need help with installation or have any questions, contact us at [contact@deeplooklabs.com](mailto:contact@deeplooklabs.com).
+Si necesitas ayuda con la instalación o tienes preguntas, contáctanos en [contact@deeplooklabs.com](mailto:contact@deeplooklabs.com).
 
-🚀 Enjoy and happy hunting!
+🚀 ¡Disfruta y feliz caza!
