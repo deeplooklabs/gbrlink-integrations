@@ -26,10 +26,10 @@ If you haven't installed Tampermonkey yet, download the extension for your brows
 
 ```javascript
 // ==UserScript==
-// @name         URL Collector and Sender
+// @name         GBRLink
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  URL Collector and Sender
+// @description  GBRLink Sender
 // @author       phor3nsic
 // @match        *://*/*
 // @grant        GM_xmlhttpRequest

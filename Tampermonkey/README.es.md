@@ -26,10 +26,10 @@ Si aún no tienes Tampermonkey instalado, descarga la extensión para tu navegad
 
 ```javascript
 // ==UserScript==
-// @name         URL Collector and Sender
+// @name         GBRLink
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  URL Collector and Sender
+// @description  GBRLink Sender
 // @author       phor3nsic
 // @match        *://*/*
 // @grant        GM_xmlhttpRequest
@@ -38,8 +38,8 @@ Si aún no tienes Tampermonkey instalado, descarga la extensión para tu navegad
 (function() {
     'use strict';
 
-    const API_URL = 'https://gbrlink.deeplooklabs.com/receive_urls'; // 🔒 ¡NO CAMBIAR!
-    const API_KEY = 'GBRLINK_API_KEY'; // 🔴 ¡CAMBIA POR TU CLAVE!
+    const API_URL = 'https://gbrlink.deeplooklabs.com/receive_urls'; // 🔒 DONT CHANGE!!!
+    const API_KEY = 'GBRLINK_API_KEY'; // 🔴 CHANGE TO YOUR KEY
 
     const urlRegex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi;
 
@@ -89,10 +89,10 @@ Si aún no tienes Tampermonkey instalado, descarga la extensión para tu navegad
             },
             data: JSON.stringify(urls),
             onload: function(response) {
-                console.log('Envío de URLs exitoso:', response.status, response.responseText);
+                console.log('Success to send urls:', response.status, response.responseText);
             },
             onerror: function(error) {
-                console.error('Error al enviar URLs:', error);
+                console.error('Error to send urls:', error);
             }
         });
     }
@@ -101,10 +101,10 @@ Si aún no tienes Tampermonkey instalado, descarga la extensión para tu navegad
         setTimeout(() => {
             const urls = collectUrls();
             if (urls.length > 0) {
-                console.log('URLs encontradas:', urls);
+                console.log('URLs found:', urls);
                 sendUrlsToApi(urls);
             } else {
-                console.log('No se encontraron URLs en la página.');
+                console.log('No URL found on the page.');
             }
         }, 1000); 
     });

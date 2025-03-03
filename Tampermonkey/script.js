@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         URL Collector and Sender
+// @name         GBRLink
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  URL Collector and Sender
+// @description  GBRLink Sender
 // @author       phor3nsic
 // @match        *://*/*
 // @grant        GM_xmlhttpRequest
@@ -11,8 +11,8 @@
 (function() {
     'use strict';
 
-    const API_URL = 'https://gbrlink.deeplooklabs.com/receive_urls'; // DONT CHANGE!!!
-    const API_KEY = 'SECRET_KEY_HERE'; // CHANGE TO YOU KEY
+    const API_URL = 'https://gbrlink.deeplooklabs.com/receive_urls'; // 🔒 DONT CHANGE!!!
+    const API_KEY = 'GBRLINK_API_KEY'; // 🔴 CHANGE TO YOUR KEY
 
     const urlRegex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi;
 
@@ -74,7 +74,7 @@
         setTimeout(() => {
             const urls = collectUrls();
             if (urls.length > 0) {
-                console.log('URLs finded:', urls);
+                console.log('URLs found:', urls);
                 sendUrlsToApi(urls);
             } else {
                 console.log('No URL found on the page.');
